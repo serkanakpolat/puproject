@@ -1,0 +1,244 @@
+/* Parallel YouNiverse landing page. Fully light; nations differ only by small accent colours. */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f6f6f9;
+  --ink: #0b0d1a;
+  --ink-soft: #4a4d63;
+  --line: #e4e5ee;
+
+  /* Logo ring colours */
+  --violet: #8b6cf0;
+  --cyan: #2bb7d9;
+  --gold: #d4a94a;
+
+  /* Nation accents, darkened for contrast on white */
+  --cyber: #0094b8;
+  --conservative: #2f5d3a;
+  --spiritual: #3b3f8c;
+
+  --font-display: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --radius: 18px;
+  --max: 1120px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+p, h1, h2, h3 { overflow-wrap: break-word; }
+h1, h2, h3 { text-wrap: balance; }
+h1, h2, h3 { font-family: var(--font-display); font-stretch: 112%; line-height: 1.1; margin: 0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font: 700 1rem var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+@media (hover: hover) {
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgb(11 13 26 / 0.18); }
+}
+.btn:focus-visible, input:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+section { padding: clamp(4rem, 9vw, 7rem) 16px; }
+
+/* 1. Hero */
+.hero {
+  min-height: 92vh;
+  min-height: 92svh; /* ignores the mobile browser's address bar */
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 16px 4rem;
+  text-align: center;
+}
+/* The logo file has wide white margins; crop them so the logo fills small screens */
+.hero-logo {
+  width: min(760px, 100%); height: auto;
+  aspect-ratio: 1280 / 520;
+  object-fit: cover;
+}
+.tagline {
+  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.tagline span { white-space: nowrap; }
+.tagline span {
+  background: linear-gradient(90deg, var(--violet), var(--cyan) 50%, var(--gold));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* 2. Origin story */
+.origin { background: var(--bg-soft); text-align: center; }
+.eyebrow {
+  margin: 0 0 1.5rem;
+  font: 700 0.8rem var(--font-body);
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.origin-text {
+  max-width: 62ch;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  text-align: left;
+  /* Balanced line breaks: avoids single orphan words and ragged last lines */
+  text-wrap: pretty;
+  hyphens: manual;
+  overflow-wrap: break-word;
+}
+.origin-text p { margin: 0 0 1.2rem; }
+.origin-question { text-wrap: balance; }
+.nowrap { white-space: nowrap; }
+.origin-question {
+  margin: 2.5rem 0 0;
+  font: 800 clamp(1.5rem, 3.5vw, 2.25rem) var(--font-display);
+  font-stretch: 112%;
+}
+
+/* 3. Nations */
+.nations { max-width: var(--max); margin: 0 auto; display: grid; gap: clamp(4rem, 8vw, 6rem); }
+.nation {
+  --accent: var(--ink);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+.nation:nth-child(even) img { order: 2; }
+.nation img {
+  width: 100%; height: auto;
+  aspect-ratio: 16 / 10; object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgb(11 13 26 / 0.12);
+}
+.nation--cyber { --accent: var(--cyber); }
+.nation--conservative { --accent: var(--conservative); }
+.nation--spiritual { --accent: var(--spiritual); }
+
+.nation-kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent);
+}
+.nation h2 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; }
+.motto {
+  margin: 0.5rem 0 1rem;
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--accent);
+  font-size: 1.15rem; font-weight: 600; font-style: italic;
+}
+.nation-body p { color: var(--ink-soft); }
+.nation-body .motto, .nation-body .nation-kicker { color: var(--accent); }
+.signature { font-weight: 700; color: var(--ink) !important; margin-bottom: 0; }
+
+/* 4. Platform */
+.platform { background: var(--bg-soft); }
+.platform > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
+.platform h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; text-align: center; }
+.lead { text-align: center; max-width: 620px; margin-top: 1rem; font-size: 1.2rem; color: var(--ink-soft); }
+.features {
+  list-style: none; padding: 0; margin-top: 3rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+}
+.features li {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+}
+.features h3 { font-size: 1.2rem; font-weight: 800; margin: 0.75rem 0 0.4rem; }
+.features p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+.num {
+  font: 800 0.85rem var(--font-display);
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.age { text-align: center; margin-top: 2rem; font-size: 0.9rem; color: var(--ink-soft); }
+
+/* 5. Join */
+.join { text-align: center; }
+.join h2 { font-size: clamp(2rem, 5.5vw, 3.5rem); font-weight: 900; }
+.join > p { max-width: 520px; margin: 1rem auto 2rem; color: var(--ink-soft); }
+.signup { display: flex; gap: 0.6rem; max-width: 480px; margin: 0 auto; }
+.signup input {
+  flex: 1; min-width: 0;
+  padding: 0.9rem 1.2rem;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  font: 500 1rem var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+}
+.form-msg { min-height: 1.6em; margin-top: 1rem; font-weight: 600; }
+.form-msg.is-error { color: #c0262d; }
+.form-msg.is-ok { font-size: 1.2rem; }
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .features { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  body { font-size: 1rem; }
+  section { padding: 3.5rem 16px; }
+
+  .hero { min-height: 80svh; gap: 1.25rem; padding: 2rem 16px 3rem; }
+
+  .origin-text { font-size: 1.075rem; }
+  .origin-question { margin-top: 1.75rem; }
+
+  .nations { gap: 3.5rem; }
+  .nation { grid-template-columns: 1fr; gap: 1.25rem; }
+  .nation:nth-child(even) img { order: 0; }
+  .nation img { border-radius: 14px; box-shadow: 0 12px 30px rgb(11 13 26 / 0.12); }
+  .nation-kicker { letter-spacing: 0.12em; }
+  .motto { font-size: 1.05rem; }
+
+  .lead { font-size: 1.075rem; }
+  .features { margin-top: 2rem; gap: 0.9rem; }
+  .features li { padding: 1.35rem 1.25rem; }
+}
+@media (max-width: 520px) {
+  .features { grid-template-columns: 1fr; }
+  .signup { flex-direction: column; }
+  .signup .btn { width: 100%; }
+  .hero .btn { width: 100%; max-width: 320px; }
+}
+@media (max-width: 360px) {
+  .nowrap, .tagline span { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}

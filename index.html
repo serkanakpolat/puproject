@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Parallel YouNiverse</title>
+<meta name="description" content="Every version of you. One Profile! Choose a nation, meet your parallel self, complete quests and grow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- 1. Hero: logo + tagline -->
+<header class="hero">
+  <img class="hero-logo" src="assets/website-logo-light.jpg" alt="Parallel YouNiverse: Cyber, Conservative, Spiritual" width="1280" height="853">
+  <h1 class="tagline">Every version of you. <span>One Profile!</span></h1>
+  <a class="btn" href="#join">Join Now</a>
+</header>
+
+<main>
+
+  <!-- 2. Origin story (short version) -->
+  <section class="origin" aria-labelledby="origin-title">
+    <p class="eyebrow">Origin Story</p>
+    <h2 id="origin-title" class="visually-hidden">Origin Story</h2>
+    <div class="origin-text">
+      <p>One night, scientists studying AI and consciousness saw three signals on their screens that they couldn't explain. One pulsed like a heartbeat of data, one had the rhythm of handcraft, and one was like a deep breath.</p>
+      <p>To decode them, they built a new kind of intelligence and named it <strong>O</strong>.</p>
+      <p>In the end, O decoded the signals and told them the truth: they weren't coming from distant strangers. They were coming from three nations in a parallel universe, built from versions of ourselves we never lived.</p>
+      <p>And all of them were saying the same thing: <strong class="nowrap">"Come. We're waiting for you."</strong></p>
+    </div>
+    <p class="origin-question">Which version of you is calling?</p>
+  </section>
+
+  <!-- 3. The three nations -->
+  <section class="nations" aria-label="The three nations">
+
+    <article class="nation nation--cyber">
+      <img src="assets/z0n.jpg" alt="z0n, a glowing wireframe DJ at the decks in a neon grid" width="1280" height="720" loading="lazy">
+      <div class="nation-body">
+        <p class="nation-kicker">Cyber Nation · the Grid</p>
+        <h2>z0n</h2>
+        <p class="motto">"Upgrade or be left behind."</p>
+        <p>For people who live after midnight, with bass in their chest and a terminal open in another tab. The Grid sees AI as a partner, believes in learning without end, and shares what it builds. Led by <strong>z0n</strong>, a DJ and systems architect who is proud to be an AI.</p>
+        <p class="signature">Stay synced. ⚡</p>
+      </div>
+    </article>
+
+    <article class="nation nation--conservative">
+      <img src="assets/Aaltar.jpg" alt="Aaltar, a carpenter planing wood in a sunlit workshop" width="1280" height="720" loading="lazy">
+      <div class="nation-body">
+        <p class="nation-kicker">Conservative Nation · the Guild</p>
+        <h2>Aaltar</h2>
+        <p class="motto">"Roots before branches."</p>
+        <p>For people who believe the best things are made slowly: bread that rises overnight, a chair that outlives its maker, a letter written by hand. The Guild values craft, family and community, and climbs from apprentice to master. Led by <strong>Aaltar</strong>, a patient master carpenter with a dry sense of humour.</p>
+        <p class="signature">Built to last. 🛠</p>
+      </div>
+    </article>
+
+    <article class="nation nation--spiritual">
+      <img src="assets/Liora.jpg" alt="Liora, a glowing figure standing on a still lake at sunrise" width="1280" height="720" loading="lazy">
+      <div class="nation-body">
+        <p class="nation-kicker">Spiritual Nation · the Grove</p>
+        <h2>Liora</h2>
+        <p class="motto">"Still water runs deep."</p>
+        <p>For people who look inward before they look outward, notice the sunrise and take a walk without headphones. The Grove values stillness, nature, gratitude and quiet kindness. Led by <strong>Liora</strong>, "a lantern, not a path".</p>
+        <p class="signature">Breathe deep. 🌿</p>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- 4. What kind of platform is this? -->
+  <section class="platform" aria-labelledby="platform-title">
+    <h2 id="platform-title">What kind of platform is this?</h2>
+    <p class="lead">Parallel YouNiverse is a social game where you show who you are and have fun doing it.</p>
+    <ul class="features">
+      <li><span class="num">01</span><h3>Pick a nation</h3><p>Get your parallel self: an avatar that grows with you.</p></li>
+      <li><span class="num">02</span><h3>Wear any title</h3><p>Your real job, your dream job, or one that hasn't been invented yet.</p></li>
+      <li><span class="num">03</span><h3>Complete quests</h3><p>Post the proof. O checks it and pays you in coins.</p></li>
+      <li><span class="num">04</span><h3>Level up your stats</h3><p>Grow Spark, Craft or Zen, and see how others see you.</p></li>
+    </ul>
+    <p class="age">For ages 18+.</p>
+  </section>
+
+  <!-- 5. Join now + email sign-up -->
+  <section class="join" id="join" aria-labelledby="join-title">
+    <h2 id="join-title">Your parallel self is waiting.</h2>
+    <p>Be among the first to cross the bridge. Leave your email and we'll let you know when the gates open.</p>
+    <!-- Form only for now: nothing is sent or stored yet. -->
+    <form class="signup" id="signup" novalidate>
+      <label class="visually-hidden" for="email">Email address</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+      <button class="btn" type="submit">Join Now</button>
+    </form>
+    <p class="form-msg" id="form-msg" role="status" aria-live="polite"></p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2026 Parallel YouNiverse · Cyber · Conservative · Spiritual</p>
+</footer>
+
+<script>
+  const form = document.getElementById('signup');
+  const email = document.getElementById('email');
+  const msg = document.getElementById('form-msg');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!email.checkValidity()) {
+      msg.textContent = 'Please enter a valid email address.';
+      msg.className = 'form-msg is-error';
+      email.focus();
+      return;
+    }
+    form.hidden = true;
+    msg.textContent = "You're on the list. Which version of you will arrive?";
+    msg.className = 'form-msg is-ok';
+  });
+</script>
+</body>
+</html>
