@@ -113,6 +113,31 @@ section { padding: clamp(4rem, 9vw, 7rem) 16px; }
 .origin-text p { margin: 0 0 1.2rem; }
 .origin-question { text-wrap: balance; }
 .nowrap { white-space: nowrap; }
+
+/* The invitation: underlined in the three logo-ring colours, one per nation */
+.call { position: relative; display: inline-block; }
+.call-line {
+  position: absolute;
+  left: 0; right: 0; bottom: -0.2em;
+  display: flex;
+  height: 4px;
+}
+.call-line i { flex: 1; border-radius: 2px; transform-origin: center bottom; }
+.call-line i:nth-child(1) { --seg: #8b6cf0; }
+.call-line i:nth-child(2) { --seg: #1fa3c7; }
+.call-line i:nth-child(3) { --seg: #c99a2e; }
+.call-line i { background: var(--seg); }
+.call-line i + i { margin-left: 3px; }
+
+/* 2-second flash: the signals light up in turn, violet, cyan, gold */
+.origin.is-flashing .call-line i { animation: signal-flash 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+.origin.is-flashing .call-line i:nth-child(2) { animation-delay: 0.4s; }
+.origin.is-flashing .call-line i:nth-child(3) { animation-delay: 0.8s; }
+@keyframes signal-flash {
+  0%   { transform: scaleY(1); filter: none; box-shadow: none; }
+  18%  { transform: scaleY(2); filter: brightness(1.4) saturate(1.2); box-shadow: 0 2px 14px var(--seg); }
+  100% { transform: scaleY(1); filter: none; box-shadow: none; }
+}
 .origin-question {
   margin: 2.5rem 0 0;
   font: 800 clamp(1.5rem, 3.5vw, 2.25rem) var(--font-display);
@@ -244,4 +269,5 @@ section { padding: clamp(4rem, 9vw, 7rem) 16px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
+  .origin.is-flashing .call-line i { animation: none; }
 }

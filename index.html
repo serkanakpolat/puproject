@@ -30,7 +30,7 @@
       <p>One night, scientists studying AI and consciousness saw three signals on their screens that they couldn't explain. One pulsed like a heartbeat of data, one had the rhythm of handcraft, and one was like a deep breath.</p>
       <p>To decode them, they built a new kind of intelligence and named it <strong>O</strong>.</p>
       <p>In the end, O decoded the signals and told them the truth: they weren't coming from distant strangers. They were coming from three nations in a parallel universe, built from versions of ourselves we never lived.</p>
-      <p>And all of them were saying the same thing: <strong class="nowrap">"Come. We're waiting for you."</strong></p>
+      <p>And all of them were saying the same thing: <strong class="nowrap call">"Come. We're waiting for you."<span class="call-line" aria-hidden="true"><i></i><i></i><i></i></span></strong></p>
     </div>
     <p class="origin-question">Which version of you is calling?</p>
   </section>
@@ -111,6 +111,28 @@
 </footer>
 
 <script>
+  // Origin story: the three signals flash along the underline once, for 2 seconds,
+  // when the pointer enters the section (or when it scrolls into view on touch screens).
+  const origin = document.querySelector('.origin');
+  const callLine = origin.querySelector('.call-line');
+
+  function flashSignals() {
+    if (origin.classList.contains('is-flashing')) return;
+    origin.classList.add('is-flashing');
+    setTimeout(() => origin.classList.remove('is-flashing'), 2000);
+  }
+
+  if (matchMedia('(hover: hover)').matches) {
+    origin.addEventListener('mouseenter', flashSignals);
+  } else if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      flashSignals();
+    }, { threshold: 1 });
+    io.observe(callLine);
+  }
+
   const form = document.getElementById('signup');
   const email = document.getElementById('email');
   const msg = document.getElementById('form-msg');
