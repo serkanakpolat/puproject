@@ -121,6 +121,9 @@ section { padding: clamp(4rem, 9vw, 7rem) 16px; }
 
 /* 3. Nations */
 .nations { max-width: var(--max); margin: 0 auto; display: grid; gap: clamp(4rem, 8vw, 6rem); }
+.nations-intro { text-align: center; }
+.nations-intro h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; }
+.nations-intro .lead { margin-left: auto; margin-right: auto; }
 .nation {
   --accent: var(--ink);
   display: grid;
@@ -128,7 +131,7 @@ section { padding: clamp(4rem, 9vw, 7rem) 16px; }
   align-items: center;
   gap: clamp(1.5rem, 4vw, 3.5rem);
 }
-.nation:nth-child(even) img { order: 2; }
+.nation:nth-of-type(even) img { order: 2; }
 .nation img {
   width: 100%; height: auto;
   aspect-ratio: 16 / 10; object-fit: cover;
@@ -144,7 +147,7 @@ section { padding: clamp(4rem, 9vw, 7rem) 16px; }
   font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--accent);
 }
-.nation h2 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; }
+.nation h3 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; }
 .motto {
   margin: 0.5rem 0 1rem;
   padding-left: 0.9rem;
@@ -220,7 +223,7 @@ section { padding: clamp(4rem, 9vw, 7rem) 16px; }
 
   .nations { gap: 3.5rem; }
   .nation { grid-template-columns: 1fr; gap: 1.25rem; }
-  .nation:nth-child(even) img { order: 0; }
+  .nation:nth-of-type(even) img { order: 0; }
   .nation img { border-radius: 14px; box-shadow: 0 12px 30px rgb(11 13 26 / 0.12); }
   .nation-kicker { letter-spacing: 0.12em; }
   .motto { font-size: 1.05rem; }
